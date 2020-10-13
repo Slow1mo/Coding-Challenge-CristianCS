@@ -1,36 +1,42 @@
-import { StatusBar } from "expo-status-bar"
-import React, { useState } from "react"
-import { StyleSheet, Text, View } from "react-native"
-import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
+
+import * as React from 'react';
+import { Text, View, StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import MapScreen from './components/MapScreen';
+import ProfileScreen from './components/ProfileScreen';
+import DetailsScreen from './components/DetailsScreen';
+
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <MapView
-        provider={PROVIDER_GOOGLE}
-        style={styles.map}
-        showUserLocation={true}
-        region={{
-          latitude: 55.6761, 
-          longitude: 12.5683,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421   
-      }}>
-        
-      </MapView>
-    </View>
-  )
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Map" component={MapScreen} />
+        <Tab.Screen name="Details" component={DetailsScreen} />
+        <Tab.Screen name="Profile" component={ProfileScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
 }
 
+
 const styles = StyleSheet.create({
- container: {
-   ...StyleSheet.absoluteFillObject,
-   height: '100%',
-   width: '100%',
-   justifyContent: 'flex-end',
-   alignItems: 'center',
- },
- map: {
-   ...StyleSheet.absoluteFillObject,
- },
+    container: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+    },
+    map: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+    },
 });

@@ -1,4 +1,4 @@
-export const mockData = [
+const mockData = [
   {
     id: 1,
     title: "Test Place 1",
@@ -45,3 +45,5 @@ export const mockData = [
       "Det er en kendsgerning, at man bliver distraheret af læsbart indhold på en side, når man betragter dens layout. Meningen med at bruge Lorem",
   },
 ]
+
+export default mockData;
