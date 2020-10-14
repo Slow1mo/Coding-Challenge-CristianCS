@@ -53,10 +53,10 @@ export default function MapScreen({ navigation }) {
                                 coordinate={{ latitude: marker.latitude, longitude: marker.longitude }}
                                 title={marker.title}
                                 description={marker.description}
-                                onCalloutPress={() => navigation.navigate('Details') }
+                                onCalloutPress={() => sendDetails() && navigation.navigate('Details')}
                             >
                             </Marker>
-                            sendDetails();
+                            
                         })}
                         
                     </MapView>
