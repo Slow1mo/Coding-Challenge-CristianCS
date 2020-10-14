@@ -5,12 +5,13 @@ import MapView, {PROVIDER_GOOGLE, Marker, Callout} from 'react-native-maps'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import DetailsScreen from './DetailsScreen';
 
 import data from './mockData/mockData.tsx'
 
 const { width, height } = reactNative.Dimensions.get('window');
 
-interface Places {
+interface IPlaces {
     id: number
     title: string
     imageUrl: string
@@ -20,9 +21,16 @@ interface Places {
 }
 const ScreenStack = createStackNavigator();
 
-export default function MapScreen({ navigation }) {
-    const [places, setPlaces] = useState(data);
+var sendDetails = () => {
+    places.map((marker: IPlaces)=> {
+                            return <DetailsScreen title={marker.title} description={marker.description} Image={marker.imageUrl} />
+                        }
+                            )}
 
+
+export default function MapScreen({ navigation }) {
+    const [places: IPlaces, setPlaces: IPlaces] = useState(data);
+    const [selectedPlace: IPlaces, setSelectedPlace: IPlaces] = useState(null);
     if(places) {
         return (
             
@@ -37,19 +45,24 @@ export default function MapScreen({ navigation }) {
                         }}
                         style={styles.map}>
                         
-                        {places.map((marker: Places) => {
+                        {places.map((marker: IPlaces) => {
 
                             return <Marker
                                 key={marker.id}
                                 coordinate={{ latitude: marker.latitude, longitude: marker.longitude }}
                                 title={marker.title}
                                 description={marker.description}
-
+                                onCalloutPress={() => navigation.navigate('Details') }
                             >
                             </Marker>
+                            sendDetails();
                         })}
+                        
                     </MapView>
+                    
+                   
                 </reactNative.View>
+                
             
         )
     } else {
