@@ -5,10 +5,9 @@ import MapScreen from './MapScreen'
 const DetailsScreen = (props) => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>{props.title}</Text>
-      <Text>{props.description}</Text>
-      
-      
+      <Text>TITLE: {props.title}</Text>
+      <Text>DESCRIPTION: {props.description}</Text>
+      <Text>IMAGE: </Text>
     </View>
   );
 }
