@@ -21,7 +21,7 @@ interface IPlaces {
 }
 const ScreenStack = createStackNavigator();
 
-var sendDetails = () => {
+let sendDetails = () => {
     
     places.map((marker: IPlaces)=> {
                             return <DetailsScreen title={marker.title} description={marker.description} Image={marker.imageUrl} />
@@ -32,6 +32,7 @@ var sendDetails = () => {
 export default function MapScreen({ navigation }) {
     const [places: IPlaces, setPlaces: IPlaces] = useState(data);
     const [selectedPlace: IPlaces, setSelectedPlace: IPlaces] = useState(null);
+    
     if(places) {
         return (
             

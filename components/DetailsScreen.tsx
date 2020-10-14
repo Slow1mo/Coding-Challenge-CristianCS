@@ -1,5 +1,5 @@
 import React from "react"
-import { Text, View, StyleSheet} from "react-native"
+import { Text, View, Image} from "react-native"
 import MapScreen from './MapScreen'
 
 const DetailsScreen = (props) => {
@@ -7,7 +7,7 @@ const DetailsScreen = (props) => {
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>TITLE: {props.title}</Text>
       <Text>DESCRIPTION: {props.description}</Text>
-      <Image>IMAGE: <img width="100%" height="200" src={props.Image}</Image>
+      <Image width="100%" height="200" source={{uri:props.Image}} /> 
     </View>
   );
 }
