@@ -1,14 +1,16 @@
 import React from "react"
 import { Text, View} from "react-native"
+import MapScreen from './MapScreen'
 
-
-export default function DetailsScreen({title, description, Image}) {
+const DetailsScreen = (props) => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text><h1>{title}</h1>
-      <p>description</p></Text>
-      <View><img src="Image" alt="Image" /> </View>
+      <Text>{props.title}</Text>
+      <Text>{props.description}</Text>
+      <View><img src={props.Image} alt="Test" /> </View>
       
     </View>
   );
 }
+
+export default DetailsScreen;

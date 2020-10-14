@@ -22,6 +22,7 @@ interface IPlaces {
 const ScreenStack = createStackNavigator();
 
 var sendDetails = () => {
+    
     places.map((marker: IPlaces)=> {
                             return <DetailsScreen title={marker.title} description={marker.description} Image={marker.imageUrl} />
                         }
