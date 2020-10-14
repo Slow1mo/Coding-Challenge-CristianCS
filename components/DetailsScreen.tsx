@@ -7,7 +7,7 @@ const DetailsScreen = (props) => {
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>TITLE: {props.title}</Text>
       <Text>DESCRIPTION: {props.description}</Text>
-      <Text>IMAGE: </Text>
+      <Image>IMAGE: <img width="100%" height="200" src={props.Image}</Image>
     </View>
   );
 }
