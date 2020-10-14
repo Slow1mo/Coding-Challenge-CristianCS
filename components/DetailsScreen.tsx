@@ -1,5 +1,5 @@
 import React from "react"
-import { Text, View} from "react-native"
+import { Text, View, StyleSheet} from "react-native"
 import MapScreen from './MapScreen'
 
 const DetailsScreen = (props) => {
@@ -7,10 +7,11 @@ const DetailsScreen = (props) => {
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>{props.title}</Text>
       <Text>{props.description}</Text>
-      <View><img src={props.Image} alt="Test" /> </View>
+      
       
     </View>
   );
 }
+//tried to get the image by <View><img alt='Places' src={props.Image} /> </View> but was causing an error...
 
 export default DetailsScreen;
